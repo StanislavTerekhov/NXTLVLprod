@@ -5,12 +5,11 @@
     <title>404 Not Found</title>
     <meta http-equiv="refresh" content="0; url=/" />
     <script>
-      // Github Pages SPA fix
-      var redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect != location.href) {
-        history.replaceState(null, null, redirect);
-        location.replace(redirect);
+      // GitHub Pages SPA redirect
+      var redirect = location.pathname;
+      if (redirect && redirect !== "/") {
+        sessionStorage.redirect = redirect;
+        location.replace("/");
       }
     </script>
   </head>
