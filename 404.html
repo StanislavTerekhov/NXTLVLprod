@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>404 Not Found</title>
-    <meta http-equiv="refresh" content="0; url=/" />
+    <title>Redirecting…</title>
     <script>
-      // GitHub Pages SPA redirect
-      var redirect = location.pathname;
-      if (redirect && redirect !== "/") {
-        sessionStorage.redirect = redirect;
-        location.replace("/");
-      }
+      // SPA Fallback for GitHub Pages
+      (function() {
+        var redirectTo = '/';
+        // Сохраняем полный путь
+        sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
+        window.location.replace(redirectTo);
+      })();
     </script>
   </head>
   <body>
-    Redirecting...
+    <p>Redirecting…</p>
   </body>
 </html>
